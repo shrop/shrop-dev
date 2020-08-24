@@ -1,0 +1,134 @@
+/**
+ * Styles
+ * Mobile first 1 column layout with 2 col layout for larger screens.
+ */
+
+@import url("https://fonts.googleapis.com/css2?family=Bree+Serif&family=Open+Sans:wght@300;400&display=swap");
+
+/* Shrop brand colors. */
+$gunmetal: #292f36ff;
+$medium-turquoise: #4ecdc4ff;
+$mint-cream: #f7fff7ff;
+$bittersweet: #ff6b6bff;
+$naples-yellow: #ffe66dff;
+
+html,
+body {
+  margin: 0;
+  background-image: linear-gradient(
+    90deg,
+    $gunmetal 0%,
+    $gunmetal 50%,
+    $mint-cream 50%,
+    $mint-cream 100%
+  );
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+  background-position: center center;
+  font-family: "Open Sans", sans-serif;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5 {
+  font-family: "Bree Serif", serif;
+}
+
+h1 {
+  font-size: 2em;
+}
+
+.container {
+  max-width: 960px;
+  margin-left: auto;
+  margin-right: auto;
+  display: grid;
+  grid-template-columns: 1fr;
+
+  @media only screen and (min-width: 600px) {
+    grid-template-columns: 1fr 3fr;
+  }
+}
+
+.sidebar-wrapper {
+  padding-left: 20px;
+  padding-right: 20px;
+  background-color: $gunmetal;
+  color: $mint-cream;
+  background-image: linear-gradient(
+    90deg,
+    $bittersweet 0%,
+    $bittersweet 50%,
+    $naples-yellow 50%,
+    $naples-yellow 100%
+  );
+  background-size: 8px 100%;
+  background-repeat: no-repeat;
+  background-position: center center;
+
+  /* Ensure iPhones with notches ahdere to safe areas. */
+  @supports (-webkit-touch-callout: none) {
+    @media only screen and (min-device-width: 375px) and (max-device-width: 812px) and (-webkit-min-device-pixel-ratio: 3) and (orientation: landscape) {
+      padding: env(safe-area-inset-left) env(safe-area-inset-right);
+    }
+  }
+
+  /* For 2 column layout, ensure left column doesn't scroll. */
+  @media only screen and (min-width: 600px) {
+    position: sticky;
+    top: 0;
+    height: 100vh;
+  }
+}
+
+.sidebar {
+  width: 275px;
+  margin: 0 auto;
+  padding-top: 20px;
+}
+
+.content-wrapper {
+  padding: 20px;
+  background-color: $mint-cream;
+  color: $gunmetal;
+  border-top: 8px solid $medium-turquoise;
+
+  @media only screen and (min-width: 600px) {
+    border-top: none;
+    border-left: 8px solid $medium-turquoise;
+  }
+}
+
+.content {
+  overflow-y: scroll;
+  margin: 0 auto;
+}
+
+.profile {
+  background-color: $gunmetal;
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+.profile-pic {
+  width: 100px;
+  display: block;
+  margin: 0 auto;
+  border-radius: 50%;
+  border: 4px solid $naples-yellow;
+  animation-duration: 3s;
+  animation-name: slider-vertically;
+}
+
+/* Profile copy animation. */
+@keyframes slider-vertically {
+  from {
+    margin-bottom: 100%;
+  }
+
+  to {
+    margin-bottom: 0%;
+  }
+}
