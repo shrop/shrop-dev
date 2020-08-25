@@ -26,6 +26,22 @@ h1 {
   font-size: 2em;
 }
 
+a:active {
+  color: #292f36ff;
+}
+
+a:link {
+  color: #292f36ff;
+}
+
+a:visited {
+  color: #292f36ff;
+}
+
+a:hover {
+  color: #ff6b6bff;
+}
+
 .container {
   max-width: 960px;
   margin-left: auto;
@@ -57,6 +73,8 @@ h1 {
   @media only screen and (min-device-width: 375px) and (max-device-width: 812px) and (-webkit-min-device-pixel-ratio: 3) and (orientation: landscape) {
     .sidebar-wrapper {
       padding: env(safe-area-inset-left) env(safe-area-inset-right);
+      height: 100%;
+      background-size: 8px 120%;
     }
   }
 }
@@ -73,6 +91,10 @@ h1 {
   width: 275px;
   margin: 0 auto;
   padding-top: 20px;
+}
+
+.sidebar h1 {
+  text-align: center;
 }
 
 .content-wrapper {
@@ -108,6 +130,62 @@ h1 {
   border: 4px solid #ffe66dff;
   animation-duration: 3s;
   animation-name: slider-vertically;
+}
+
+.social-media-icons {
+  display: flex;
+  justify-content: space-between;
+}
+
+.social-media-icons svg {
+  width: 40px;
+  height: 40px;
+  fill: #4ecdc4ff;
+  transition: 1s;
+}
+
+.social-media-icons svg:hover {
+  fill: #ff6b6bff;
+  transform: rotate(-11.25deg);
+  filter: drop-shadow(0 0 0.5rem #ff6b6bff);
+}
+
+.podcasts {
+  display: flex;
+  justify-content: space-evenly;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+.podcasts img {
+  border: 4px solid #4ecdc4ff;
+  border-radius: 17.466%;
+}
+
+.podcasts img:hover {
+  border: 4px solid #ff6b6bff;
+  filter: drop-shadow(0 0 0.5rem #ff6b6bff);
+}
+
+.podcast {
+  max-width: 275px;
+}
+
+.projects img {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.projects img:hover {
+  filter: drop-shadow(0 0 0.5rem #ff6b6bff);
+}
+
+@media only screen and (min-width: 800px) {
+  .projects {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+  }
 }
 
 /* Profile copy animation. */
